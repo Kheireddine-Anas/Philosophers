@@ -6,20 +6,11 @@
 /*   By: akheired <akheired@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 19:52:03 by akheired          #+#    #+#             */
-/*   Updated: 2024/06/10 23:26:29 by akheired         ###   ########.fr       */
+/*   Updated: 2024/06/10 23:46:23 by akheired         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
-
-// long long	get_time(t_data *data)
-// {
-// 	struct timeval	time;
-
-// 	gettimeofday(&time, NULL);
-// 	return ((time.tv_sec * 1000 + time.tv_usec / 1000) - (data->tm.tv_sec
-// 			* 1000 + data->tm.tv_usec / 1000));
-// }
 
 int	ft_atoi(char *str)
 {
@@ -102,4 +93,14 @@ void	ft_usleep(int time, t_data *data)
 			return ;
 		usleep(200);
 	}
+}
+
+void	thread_join(t_data *data, int philos)
+{
+	int	i;
+
+	i = 0;
+	pthread_mutex_unlock(&data->philo->mutexs[data->right_fork]);
+	while (i < philos)
+		pthread_join(data[i++].thrd, NULL);
 }

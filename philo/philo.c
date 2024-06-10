@@ -6,7 +6,7 @@
 /*   By: akheired <akheired@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 19:51:54 by akheired          #+#    #+#             */
-/*   Updated: 2024/06/10 23:37:59 by akheired         ###   ########.fr       */
+/*   Updated: 2024/06/10 23:45:55 by akheired         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,16 +97,6 @@ void	thread_make(t_data *data, t_philos *philo)
 		gettimeofday(&data[i].last_meal, NULL);
 		pthread_create(&data[i].thrd, NULL, repetition, &data[i]);
 	}
-}
-
-void	thread_join(t_data *data, int philos)
-{
-	int	i;
-
-	i = 0;
-	pthread_mutex_unlock(&data->philo->mutexs[data->right_fork]);
-	while (i < philos)
-		pthread_join(data[i++].thrd, NULL);
 }
 
 int	main(int argc, char **argv)
