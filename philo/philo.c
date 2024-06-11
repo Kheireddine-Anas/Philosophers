@@ -6,7 +6,7 @@
 /*   By: akheired <akheired@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 19:51:54 by akheired          #+#    #+#             */
-/*   Updated: 2024/06/10 23:45:55 by akheired         ###   ########.fr       */
+/*   Updated: 2024/06/11 10:55:10 by akheired         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	init_philos(t_philos *philo, char **argv)
 {
-	int			i;
+	int	i;
 
 	i = -1;
 	philo->n_philos = ft_atoi(argv[1]);
@@ -111,4 +111,5 @@ int	main(int argc, char **argv)
 	ending_cycle(data);
 	thread_join(data, philo.n_philos);
 	ft_destroy(data);
+	return (0);
 }

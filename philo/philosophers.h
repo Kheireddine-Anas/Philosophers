@@ -6,7 +6,7 @@
 /*   By: akheired <akheired@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 19:52:08 by akheired          #+#    #+#             */
-/*   Updated: 2024/06/10 23:17:39 by akheired         ###   ########.fr       */
+/*   Updated: 2024/06/11 10:50:47 by akheired         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ typedef struct s_data
 	pthread_mutex_t	mutexs;
 }			t_data;
 
-long long	get_time(t_data *data);
 int			ft_atoi(char *str);
 int			check_life(t_data *data, int val);
 void		checking_one(int argc, char **argv);
@@ -54,6 +53,7 @@ void		ft_usleep(int time, t_data *data);
 void		ft_printer(t_data *data, char *str);
 void		eating_cycle(t_data *data);
 void		ending_cycle(t_data *data);
+void		thread_join(t_data *data, int philos);
 void		ft_destroy(t_data *data);
 
 #endif
